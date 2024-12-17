@@ -10,7 +10,7 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR..."
       # Log in to ECR using AWS CLI. Replace <your-region> and <account_id> with actual values.
-      - aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 467461513525.dkr.ecr.ap-south-1.amazonaws.com
 
   build:
     commands:
@@ -18,13 +18,12 @@ phases:
       # Build the Docker image with the tag "weather-app"
       - docker build -t weather-app .
       # Tag the image so it can be pushed to ECR
-      - docker tag weather-app:latest <account_id>.dkr.ecr.<region>.amazonaws.com/weather-app:latest
-
+      - docker tag weather-app:latest 467461513525.dkr.ecr.ap-south-1.amazonaws.com/weather-app:latest
   post_build:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
       # Push the tagged Docker image to your ECR repository
-      - docker push <account_id>.dkr.ecr.<region>.amazonaws.com/weather-app:latest
+      - docker push 467461513525.dkr.ecr.ap-south-1.amazonaws.com/weather-app:latest
 
 artifacts:
   files:
