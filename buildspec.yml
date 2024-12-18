@@ -19,12 +19,15 @@ phases:
       - docker build -t weather-app .
       # Tag the image so it can be pushed to ECR
       - docker tag weather-app:latest 467461513525.dkr.ecr.ap-south-1.amazonaws.com/weather-app:latest
+
   post_build:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
       # Push the tagged Docker image to your ECR repository
-      -docker push 467461513525.dkr.ecr.ap-south-1.amazonaws.com/weather-app:latest
+      - docker push 467461513525.dkr.ecr.ap-south-1.amazonaws.com/weather-app:latest
 
 artifacts:
   files:
-    - '**/*'  # This will include all files in the repository. You can modify it if needed.
+    # Include files in the repository if required (optional).
+    # If not needed, you can remove the entire `artifacts` section.
+    - '**/*'
