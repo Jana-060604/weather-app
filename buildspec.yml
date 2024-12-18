@@ -23,7 +23,7 @@ phases:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
       # Push the tagged Docker image to your ECR repository
-      - docker push 467461513525.dkr.ecr.ap-south-1.amazonaws.com/weather-app:latest
+      -docker push 467461513525.dkr.ecr.ap-south-1.amazonaws.com/weather-app:latest
 
 artifacts:
   files:
